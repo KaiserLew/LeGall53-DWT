@@ -44,7 +44,7 @@ def dwt(img):
         imgTrans[mt-2][j] = imgTrans[mt-4][j]
         for i in range(1, mt-2, 2):
             # High fruquency
-            i_1 = int(Width + i/2)
+            i_1 = int(Height + i/2)
             imgTransResult[i_1][j] = imgTrans[i][j] - (imgTrans[i-1][j]+imgTrans[i+1][j])/2
         for i in range(2, mt-2, 2):
             i_1 = int(Width+i/2)
@@ -90,9 +90,9 @@ def idwt(img):
         imgInTrans[mt - 1][j] = imgInTrans[mt - 3][j]
         imgInTrans[mt - 2][j] = imgInTrans[mt - 4][j]
         for i in range(2, mt-2, 2):
-            imgInTrans[i][j] = imgDWT[int(i/2)][j] - (imgDWT[int(i/2+width-1)][j]+imgDWT[int(i/2+width+1)][j]+2)/4
+            imgInTrans[i][j] = imgDWT[int(i/2)][j] - (imgDWT[int(i/2+height-1)][j]+imgDWT[int(i/2+height+1)][j]+2)/4
         for i in range(1, mt-2, 2):
-            imgInTrans[i][j] = imgDWT[int(i/2+width)][j] + (imgInTrans[i-1][j]+imgInTrans[i+1][j])/2
+            imgInTrans[i][j] = imgDWT[int(i/2+height)][j] + (imgInTrans[i-1][j]+imgInTrans[i+1][j])/2
 
     imgDWT = np.copy(imgInTrans)
 
